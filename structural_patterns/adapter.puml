@@ -1,0 +1,27 @@
+@startuml
+
+interface AbstractAdapter {
+    request()
+}
+class Adapter1 {
+    request()
+}
+class Adapter2 {
+    request()
+}
+AbstractAdapter <|-- Adapter1
+AbstractAdapter <|-- Adapter2
+
+class Adaptee1 {
+    foo1()
+}
+class Adaptee2 {
+    foo2()
+}
+Adapter1 --> Adaptee1
+Adapter2 --> Adaptee2
+
+class Target
+Target --> AbstractAdapter
+
+@enduml

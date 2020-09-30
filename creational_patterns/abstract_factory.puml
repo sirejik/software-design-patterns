@@ -12,8 +12,8 @@ class ConcreteFactory2 {
     CreateProductA()
     CreateProductB()
 }
-ConcreteFactory1 --|> AbstractFactory
-ConcreteFactory2 --|> AbstractFactory
+AbstractFactory <|-- ConcreteFactory1
+AbstractFactory <|-- ConcreteFactory2
 
 interface AbstractProductA
 class ProductA1
