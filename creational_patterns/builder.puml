@@ -1,0 +1,21 @@
+@startuml
+
+class Director {
+    Implementor
+}
+
+interface Builder {
+    OperationImpl()
+}
+Director o-- Builder
+
+class ConcreteBuilder {
+    OperationImpl()
+}
+Builder <|-- ConcreteBuilder
+
+class Product {
+}
+ConcreteBuilder ..> Product
+
+@enduml
