@@ -1,0 +1,18 @@
+@startuml
+
+class Component {
+    operation()
+}
+class Leaf {
+    operation()
+}
+class Composite {
+    operation()
+    add()
+    get_children()
+}
+Component <|-- Leaf
+Component <|-- Composite
+Composite o--> Component
+
+@enduml
