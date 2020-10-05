@@ -1,0 +1,18 @@
+@startuml
+
+class Component {
+    operation()
+}
+class ConcreteComponent {
+    operation()
+}
+class Decorator {
+    component
+    operation()
+}
+
+Component <|-- ConcreteComponent
+Component <|-- Decorator
+Decorator o--> Component
+
+@enduml
