@@ -1,0 +1,20 @@
+@startuml
+
+class Facade {
+    foo()
+    bar()
+}
+class Class1 {
+    foo_1()
+    foo_n()
+}
+class Class2 {
+    bar_1()
+    bar_n()
+
+}
+
+Facade ..> Class1
+Facade ..> Class2
+
+@enduml
