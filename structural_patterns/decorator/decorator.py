@@ -1,3 +1,7 @@
+"""
+Dynamically adds new responsibilities to the object. Provides a flexible alternative to subclassing to extend
+functionality.
+"""
 from abc import ABCMeta, abstractmethod
 
 

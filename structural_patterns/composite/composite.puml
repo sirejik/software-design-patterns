@@ -9,7 +9,6 @@ class Leaf {
 class Composite {
     operation()
     add()
-    get_children()
 }
 Component <|-- Leaf
 Component <|-- Composite

@@ -7,7 +7,7 @@ class ConcreteComponent {
     operation()
 }
 class Decorator {
-    component
+    Component
     operation()
 }
 

@@ -1,3 +1,7 @@
+"""
+Arranges objects into tree structures to represent part-whole hierarchies. Allows clients to represent individual and
+composite objects in the same way.
+"""
 from abc import ABCMeta, abstractmethod
 
 
@@ -12,7 +16,7 @@ class Component(metaclass=ABCMeta):
 
 class Leaf(Component):
     def operation(self, n):
-        print('\t' * n + 'Leaf "{}"'.format(self.name))
+        print('\t' * n + 'Leaf \'{}\''.format(self.name))
 
 
 class Composite(Component):
@@ -24,7 +28,7 @@ class Composite(Component):
         self.children.append(leaf)
 
     def operation(self, n=0):
-        print('\t' * n + 'Branch "{}"'.format(self.name))
+        print('\t' * n + 'Branch \'{}\''.format(self.name))
         for child in self.children:
             child.operation(n + 1)
 
