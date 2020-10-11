@@ -1,3 +1,9 @@
+"""
+Provides a unified interface instead of a set of interfaces for some subsystem. The facade defines a higher-level
+interface that makes the subsystem easier to use.
+"""
+
+
 class FooClass:
     @staticmethod
     def foo1():
