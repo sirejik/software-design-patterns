@@ -1,3 +1,6 @@
+"""
+Separate the abstraction from its implementation so that both can be changed independently.
+"""
 from abc import ABCMeta, abstractmethod
 
 
@@ -6,18 +9,18 @@ class Implementor(metaclass=ABCMeta):
         pass
 
     @abstractmethod
-    def operation(self):
+    def operation_impl(self):
         pass
 
 
 class ConcreteImplementationA(Implementor):
-    def operation(self):
-        print("ConcreteImplementationA operation")
+    def operation_impl(self):
+        print('ConcreteImplementationA operation.')
 
 
 class ConcreteImplementationB(Implementor):
-    def operation(self):
-        print("ConcreteImplementationB operation")
+    def operation_impl(self):
+        print('ConcreteImplementationB operation.')
 
 
 class Abstraction(metaclass=ABCMeta):
@@ -34,8 +37,8 @@ class RefinedAbstraction(Abstraction):
         super(RefinedAbstraction, self).__init__(implementor)
 
     def operation(self):
-        print("RefinedAbstraction operation")
-        return self.implementor.operation()
+        print('RefinedAbstraction operation')
+        return self.implementor.operation_impl()
 
 
 refined_abstractions = [RefinedAbstraction(ConcreteImplementationA()), RefinedAbstraction(ConcreteImplementationB())]

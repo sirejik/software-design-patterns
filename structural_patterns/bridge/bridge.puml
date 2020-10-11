@@ -2,23 +2,24 @@
 
 interface Abstraction {
     Implementor
+    operation()
 }
 
 class RefinedAbstraction {
-    refinedFunction()
+    operation()
 }
 Abstraction <|-- RefinedAbstraction
 
 interface Implementor {
-    OperationImpl()
+    operation_impl()
 }
 Abstraction o-- Implementor
 
 class ConcreteImplementationA {
-    OperationImpl()
+    operation_impl()
 }
 class ConcreteImplementationB {
-    OperationImpl()
+    operation_impl()
 }
 Implementor <|-- ConcreteImplementationA
 Implementor <|-- ConcreteImplementationB

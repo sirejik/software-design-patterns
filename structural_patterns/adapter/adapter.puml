@@ -18,8 +18,8 @@ class Adaptee1 {
 class Adaptee2 {
     foo2()
 }
-Adapter1 --> Adaptee1
-Adapter2 --> Adaptee2
+Adapter1 --|> Adaptee1
+Adapter2 --|> Adaptee2
 
 class Target
 Target --> AbstractAdapter
