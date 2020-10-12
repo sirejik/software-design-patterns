@@ -1,13 +1,10 @@
 @startuml
 
-class Flyweight {
+interface Flyweight {
     operation()
 }
 class ConcreteFlyweight {
-    all_states
-}
-class UnsharedConcreteFlyweight {
-    inner_states
+    operation()
 }
 class Client {
 }
@@ -16,10 +13,8 @@ class FlyweightFactory {
 }
 
 FlyweightFactory o--> Flyweight
-ConcreteFlyweight <|-- Flyweight
-UnsharedConcreteFlyweight <|-- Flyweight
-Client <-- FlyweightFactory
+ConcreteFlyweight --|> Flyweight
+Client --> FlyweightFactory
 Client --> ConcreteFlyweight
-Client --> UnsharedConcreteFlyweight
 
 @enduml

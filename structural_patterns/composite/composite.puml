@@ -1,6 +1,6 @@
 @startuml
 
-class Component {
+interface Component {
     operation()
 }
 class Leaf {

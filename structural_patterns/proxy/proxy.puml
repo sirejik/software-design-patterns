@@ -13,7 +13,7 @@ class RealSubject {
     action()
 }
 
-Client ..> Subject
+Client --> Subject
 
 Subject <|-- Proxy
 Subject <|-- RealSubject

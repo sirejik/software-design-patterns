@@ -1,38 +1,33 @@
-class Flyweight:
+"""
+Uses partitioning to effectively support many small objects.
+"""
+from abc import ABCMeta, abstractmethod
+
+
+class Flyweight(metaclass=ABCMeta):
     def __init__(self, name):
         self.name = name
+
+    @abstractmethod
+    def operation(self):
+        pass
 
 
 class FlyweightFactory:
     flyweights = {}
 
     @staticmethod
-    def get_flyweight(number) -> Flyweight:
-        return FlyweightFactory.flyweights.setdefault(number, Flyweight(number))
+    def get_flyweight(name) -> Flyweight:
+        return FlyweightFactory.flyweights.setdefault(name, ConcreteFlyweight(name))
 
 
-class ConcreteFlyweight:
-    def __init__(self, number):
-        self.number = number
-
-    def print(self, flyweight: Flyweight):
-        print("Flyweight {} for {}".format(flyweight.name, self.number))
+class ConcreteFlyweight(Flyweight):
+    def operation(self):
+        print('Flyweight {} created'.format(self.name))
 
 
-class UnsharedConcreteFlyweight:
-    def __init__(self):
-        self.concrete_flyweights = {}
-
-    def get_flyweight(self, number) -> ConcreteFlyweight:
-        return self.concrete_flyweights.setdefault(number, ConcreteFlyweight(number))
-
-    def add_flyweight(self, number, name):
-        return self.get_flyweight(number).print(FlyweightFactory.get_flyweight(name))
-
-
-object_list = UnsharedConcreteFlyweight()
-for i in range(1000):
-    object_list.add_flyweight(i, 'object_{}'.format(i % 5))
+object_list = FlyweightFactory()
+for i in range(10):
+    object_list.get_flyweight('object_{}'.format(i % 3))
 
 print(len(FlyweightFactory.flyweights))
-print(len(object_list.concrete_flyweights))
