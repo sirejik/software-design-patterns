@@ -1,21 +1,19 @@
+"""
+Separates the construction of a complex object from its representation, so that different representations can result
+from the same design process.
+"""
 from abc import ABCMeta, abstractmethod
 
 
 class Product:
     def __init__(self):
-        self.param1 = None
-        self.param2 = None
+        self.param = None
 
-    def set_param1(self, param):
-        self.param1 = param
-
-    def set_param2(self, param):
-        self.param2 = param
+    def set_param(self, param):
+        self.param = param
 
     def __repr__(self):
-        return "Product with the following parameters: parameter1 '{}' and parameter2 '{}'.".format(
-            self.param1, self.param2
-        )
+        return 'Product with the following parameters: parameter \'{}\'.'.format(self.param)
 
 
 class Builder(metaclass=ABCMeta):
@@ -23,11 +21,7 @@ class Builder(metaclass=ABCMeta):
         self.product = Product()
 
     @abstractmethod
-    def build1(self):
-        pass
-
-    @abstractmethod
-    def build2(self):
+    def build(self):
         pass
 
     def get_product(self):
@@ -35,11 +29,8 @@ class Builder(metaclass=ABCMeta):
 
 
 class ConcreteBuilder(Builder):
-    def build1(self):
-        self.product.set_param1("first")
-
-    def build2(self):
-        self.product.set_param2("second")
+    def build(self):
+        self.product.set_param('param')
 
 
 class Director(metaclass=ABCMeta):
@@ -47,8 +38,7 @@ class Director(metaclass=ABCMeta):
         self.builder = builder
 
     def build(self):
-        self.builder.build1()
-        self.builder.build2()
+        self.builder.build()
 
     def get_product(self):
         return self.builder.get_product()

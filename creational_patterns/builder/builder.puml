@@ -2,15 +2,16 @@
 
 class Director {
     Implementor
+    build()
 }
 
 interface Builder {
-    OperationImpl()
+    operation_impl()
 }
 Director o-- Builder
 
 class ConcreteBuilder {
-    OperationImpl()
+    operation_impl()
 }
 Builder <|-- ConcreteBuilder
 

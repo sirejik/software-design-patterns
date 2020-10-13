@@ -1,3 +1,7 @@
+"""
+Provides an interface for creating families of related or interdependent objects without specifying their specific
+classes.
+"""
 from abc import ABCMeta, abstractmethod
 
 
@@ -15,7 +19,7 @@ class ProductA2(AbstractProductA):
 
 class AbstractProductB(metaclass=ABCMeta):
     def interact(self, another_product: AbstractProductA) -> None:
-        print("{} interacts with {}".format(self.__class__.__name__, another_product.__class__.__name__))
+        print('{} interacts with {}'.format(self.__class__.__name__, another_product.__class__.__name__))
 
 
 class ProductB1(AbstractProductB):
