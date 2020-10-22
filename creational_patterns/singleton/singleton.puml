@@ -1,0 +1,8 @@
+@startuml
+
+class Singleton {
+    instance
+    get_instance()
+}
+
+@enduml

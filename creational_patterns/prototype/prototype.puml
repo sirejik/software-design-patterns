@@ -1,0 +1,13 @@
+@startuml
+
+interface Prototype {
+    operation()
+}
+
+class Concrete {
+    operation()
+}
+
+Prototype <|-- Concrete
+
+@enduml
