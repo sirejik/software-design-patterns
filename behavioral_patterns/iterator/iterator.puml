@@ -1,0 +1,30 @@
+@startuml
+
+class Client {
+}
+
+interface Iterator {
+    current()
+    next()
+    has_next()
+}
+Client --> Iterator
+
+class ConcreteIterator {
+}
+Iterator <|-- ConcreteIterator
+
+interface Aggregate {
+    create_iterator()
+}
+Client --> Aggregate
+
+class ConcreteAggregate {
+    create_iterator()
+}
+Aggregate <|-- ConcreteAggregate
+
+ConcreteAggregate .> ConcreteIterator
+ConcreteIterator -> ConcreteAggregate
+
+@enduml
