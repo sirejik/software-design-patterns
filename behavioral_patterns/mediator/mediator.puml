@@ -1,0 +1,25 @@
+@startuml
+
+interface Mediator {
+}
+
+class ConcreteMediator {
+}
+Mediator <|-- ConcreteMediator
+
+interface Colleague {
+}
+
+class Alice {
+}
+
+class Bob {
+}
+Colleague <|-- Alice
+Colleague <|-- Bob
+
+Mediator <-- Colleague
+ConcreteMediator --> Alice
+ConcreteMediator --> Bob
+
+@enduml
