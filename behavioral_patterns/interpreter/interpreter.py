@@ -21,7 +21,7 @@ class AbstractExpression(metaclass=ABCMeta):
 
 class TerminalExpression(AbstractExpression):
     def interpret(self, context: Context):
-        print("TerminalExpression")
+        print('TerminalExpression')
         print(context.get_value())
 
 
@@ -30,7 +30,7 @@ class NonTerminalExpression(AbstractExpression):
         self.expression = expression
 
     def interpret(self, context: Context):
-        print("NonTerminalExpression")
+        print('NonTerminalExpression')
         self.expression.interpret(context)
 
 

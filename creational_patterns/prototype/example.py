@@ -12,12 +12,12 @@ class Prototype(metaclass=ABCMeta):
 
 class ConcreteA(Prototype):
     def operation(self):
-        print("Hello {}!".format(self.name))
+        print('Hello {}!'.format(self.name))
 
 
 class ConcreteB(Prototype):
     def operation(self):
-        print("Goodbye {}!".format(self.name))
+        print('Goodbye {}!'.format(self.name))
 
 
 concrete = ConcreteA('John')

@@ -1,0 +1,18 @@
+@startuml
+
+class Originator {
+    restore(Memento)
+    save()
+}
+
+class Memento {
+    get_state()
+    state
+}
+Originator ..> Memento
+
+class Caretaker {
+}
+Memento <--* Caretaker
+
+@enduml

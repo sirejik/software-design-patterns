@@ -12,7 +12,7 @@ class Prototype(metaclass=ABCMeta):
 
 class Concrete(Prototype):
     def operation(self):
-        print("Hello world!")
+        print('Hello world!')
 
 
 concrete = Concrete()
