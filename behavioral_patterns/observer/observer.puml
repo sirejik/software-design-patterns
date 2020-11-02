@@ -1,0 +1,25 @@
+@startuml
+
+interface Subject {
+    attach()
+    notify()
+}
+
+interface Observer {
+    update()
+}
+
+Subject -> Observer
+
+class ConcreteSubject {
+}
+Subject <|-- ConcreteSubject
+
+class ConcreteObserver {
+
+}
+Observer <|-- ConcreteObserver
+
+ConcreteSubject o- ConcreteObserver
+
+@enduml
