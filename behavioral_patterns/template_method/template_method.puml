@@ -1,0 +1,15 @@
+@startuml
+
+interface AbstractClass {
+    template_method()
+    primitive_operation1()
+    primitive_operation2()
+}
+
+class ConcreteClass {
+    primitive_operation1()
+    primitive_operation2()
+}
+AbstractClass <|-- ConcreteClass
+
+@enduml
