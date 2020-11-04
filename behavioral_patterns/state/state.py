@@ -16,26 +16,29 @@ class Context:
             self.state = ConcreteStateB()
 
     def request(self):
-        self.state.handle()
+        self.state.handle(self)
 
 
 class State(metaclass=ABCMeta):
     @abstractmethod
-    def handle(self):
+    def handle(self, context):
         pass
 
 
 class ConcreteStateA(State):
-    def handle(self):
+    def handle(self, context):
         print('Handle request with class \'{}\''.format(self.__class__.__name__))
 
 
 class ConcreteStateB(State):
-    def handle(self):
+    def handle(self, context):
         print('Handle request with class \'{}\''.format(self.__class__.__name__))
+        print('Change state from other state class.')
+        context.change_state(True)
 
 
-context = Context()
-context.request()
-context.change_state(False)
-context.request()
+my_context = Context()
+my_context.request()
+my_context.change_state(False)
+my_context.request()
+my_context.request()

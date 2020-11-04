@@ -8,6 +8,7 @@ interface State {
     handle()
 }
 Context o--> State
+State ..> Context
 
 class ConcreteStateA {
 }
