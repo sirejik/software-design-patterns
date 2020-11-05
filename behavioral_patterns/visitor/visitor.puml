@@ -1,0 +1,45 @@
+@startuml
+
+class Client {
+}
+
+interface Exporter {
+    visit_concrete_element_a(e: Dot)
+    visit_concrete_element_b(e: Circle)
+}
+Client --> Exporter
+
+class XMLExporter {
+    visit_concrete_element_a(e: Dot)
+    visit_concrete_element_b(e: Circle)
+}
+Exporter <|-- XMLExporter
+
+class JSONExporter {
+    visit_concrete_element_a(e: Dot)
+    visit_concrete_element_b(e: Circle)
+}
+Exporter <|-- JSONExporter
+
+class ObjectStructure {
+}
+Client --> ObjectStructure
+
+interface Shape {
+    accept(Exporter)
+}
+ObjectStructure o--> Shape
+
+class Dot {
+    accept(v: Exporter)
+    operation_a()
+}
+Shape <|-- Dot
+
+class Circle {
+    accept(v: Exporter)
+    operation_b()
+}
+Shape <|-- Circle
+
+@enduml
